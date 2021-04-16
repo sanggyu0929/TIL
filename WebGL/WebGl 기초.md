@@ -22,7 +22,7 @@
         <span style="display : block; text-align : center;">Opera 15 이상<span>
     </div>
     <div class="imgBox" style="width: 100%; height : 100%; margin : 10px;">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/9/97/Microsoft_Edge_Logo.svg" width='100'>
+        <img src="https://upload.wikimedia.org/wikipedia/ko/thumb/9/98/Microsoft_Edge_logo_%282019%29.svg/1200px-Microsoft_Edge_logo_%282019%29.svg.png" width='100'>
         <span style="display : block; text-align : center;">Microsoft Edge<span>
     </div>
 </div>
