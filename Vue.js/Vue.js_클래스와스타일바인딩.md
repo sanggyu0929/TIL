@@ -81,3 +81,24 @@ new Vue({
 ```
 
 > 위의 예제에서 `<Child />`는 `<div class="foo bar baz boo">`로 렌더링 된다.
+
+### 객체를 통한 인라인 스타일 바인딩
+
+> `v-bind:style(:style)` 을 통해 객체를 바인딩 할 수 있다.  
+> 속성 이름에는 camelCase와 kebab-case를 사용할 수 있다.
+
+```html
+<div v-bind:style="styleObject"></div>
+```
+
+```js
+data: {
+  styleObject: {
+    color: 'red',
+    fontSize: '13px',
+  }
+}
+```
+
+> 객체에 직접 바인딩하여 더 간결하게 만들 수 있다.  
+> 클래스 바인딩과 마찬가지로 객체를 반환하는 `computed`도 적용이 가능하다.
