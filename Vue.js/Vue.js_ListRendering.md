@@ -57,6 +57,30 @@ new Vue({
 > 각 노드에 `key`를 지정해 주게 되면 가상 DOM은 `key`를 추적하여 `key`가 서로 매칭되는 노드를 업데이트 한다.  
 > _참고 : `key`는 실제로 렌더링 되지 않는다._
 
+### `v-for`와 객체
+
+> `v-for`를 사용하여 객체의 속성을 반복 할 수 있다.
+
+```html
+<div id="app">
+  <ul class="heropy">
+    <li v-for="(value, key, index) in heropy" :key="index">{{ value }}</li>
+  </ul>
+</div>
+```
+
+```js
+new Vue({
+  el: "#app",
+  data: {
+    heropy: {
+      name: "HEROPY",
+      age: 35,
+    },
+  },
+});
+```
+
 ### 배열 변경 감지
 
 > Vue가 배열이 변경 되었는지 감지하여 DOM에 업데이트 하기 위해서는 배열의 메소드들을 사용해야 한다.
@@ -70,7 +94,8 @@ new Vue({
 - `splice()`
 - `sort()`
 - `reverse()`
-  > 위의 배열의 메소드를 사용할 때 Vue는 배열의 변화를 감지하여 DOM을 업데이트 할 수 있다.
+
+##### 위의 배열의 메소드를 사용할 때 Vue는 배열의 변화를 감지하여 DOM을 업데이트 할 수 있다.
 
 #### 배열 대체
 
@@ -79,4 +104,49 @@ new Vue({
 - `filter()`
 - `concat()`
 - `slice()`
-  > 반면 위의 메소드들은 원본 배열을 변형하지 않고 항상 새로운 배열을 반환한다.
+
+##### 반면 위의 메소드들은 원본 배열을 변형하지 않고 항상 새로운 배열을 반환한다.
+
+```html
+<div id="app">
+  <button @click="pushTodo">Push</button>
+  <ul class="todos">
+    <li v-for="(todo, index) in todos" :key="index">{{ todo.title }}</li>
+  </ul>
+</div>
+```
+
+```js
+new Vue({
+  el: "#app",
+  data: {
+    todos: [
+      { title: "아침 먹기" },
+      { title: "점심 먹기" },
+      { title: "저녁 먹기" },
+    ],
+  },
+  methods: {
+    pushTodo() {
+      this.todos.push({ title: "야식 먹기" });
+    },
+  },
+});
+```
+
+> 위의 예제처럼 전체 목록을 다시 렌더링 한다고 생각할 수 있지만, Vue는 가상 DOM을 사용하여 변화된 부분만 DOM에 반영하기 때문에 전체 목록을 다시 렌더링 하지 않고, 효율적으로 DOM을 업데이트 할 수 있다.
+
+### `Object.assign()`
+
+> `Object.assgin()`을 사용하여 기존 객체에 새 속성을 추가 할 수도 있다.
+
+```js
+this.heropy = Object.assign({}, this.heropy, {
+  homepage: "heropy.blog",
+  email: "thesecon@gmail.com",
+  a: "A",
+  b: "B",
+});
+```
+
+> `Object.assign()`을 사용하면 새로운 객체를 만들어 다시 할당해 주어야 한다.
