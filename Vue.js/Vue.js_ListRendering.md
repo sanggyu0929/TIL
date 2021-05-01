@@ -150,3 +150,36 @@ this.heropy = Object.assign({}, this.heropy, {
 ```
 
 > `Object.assign()`을 사용하면 새로운 객체를 만들어 다시 할당해 주어야 한다.
+
+### `Vue.set()`
+
+> `Vue.set(object, key, value)`를 사용하여 동적으로 반응형 속성을 추가할 수 있다.
+
+- 배열 데이터 추가
+
+```js
+this.$set(this.todos, 3, { title: "야식 먹기" });
+```
+
+or
+
+```js
+Vue.set(this.todos, 3, { title: "야식 먹기" });
+```
+
+> 위와 같이 `Vue.set`을 사용하여 반응성을 가진 새로운 배열 데이터를 추가할 수 있다.  
+> 혹은 Vue인스턴스 메소드인 `$set`을 사용할 수도 있다. (`Vue.set`은 전역 메소드이다.)
+
+- 객체 데이터 추가
+
+```js
+this.$set(this.heropy, "homepage", "heropy.blog");
+```
+
+or
+
+```js
+Vue.set(this.heropy, "homepage", "heropy.blog");
+```
+
+> 위와 같이 객체에 `Vue.set`을 사용하여 새로운 반응형 속성을 추가할 수 있다.
