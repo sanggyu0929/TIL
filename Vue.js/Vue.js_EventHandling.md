@@ -108,3 +108,71 @@ new Vue({
 ```
 
 > 지정한 이벤트 핸들러에서 `event.preventDefault()`를 호출하지 않는 다는 것을 브라우저에 알리는 이벤트 수식어이다.
+
+### 키 수식어
+
+> 키보드 이벤트를 처리할 때, 특정 키 코드를 확인 해야 할 때가 있다.  
+> Vue는 키 수식어를 사용하여 특정 키 코드를 처리할 수 있다.
+
+```html
+<input v-on:keyup.13="submit" />
+```
+
+Vue는 자주 사용하는 키 코드의 수식어를 제공한다.
+
+- `.enter`
+- `.tab`
+- `.delete`
+- `.esc`
+- `.space`
+- `.up`
+- `.down`
+- `.left`
+- `.right`
+
+### 오토매틱 키 수식어
+
+> `keyboardEvent.key`를 통해 노출된 유효 키 이름을 수식어로 사용할 수 있다.
+
+```html
+<input @keyup.page-down="onPageDown" />
+```
+
+> 위 예제에서 핸들러는 `$event.key === 'PageDown`일 때만 호출한다.
+
+### 시스템 키 수식어
+
+- `ctrl`
+- `alt`
+- `shift`
+- `meta`
+  > 위의 수식어를 사용해 해당 수식어 키가 눌러진 경우에는 마우스 또는 키보드 이벤트 리스너를 트리거 할 수 있다.
+
+```html
+<!-- Alt + C -->
+<input @keyup.alt.67="clear" />
+<!-- Ctrl + Click -->
+<div @click.ctrl="doSomething">Do something</div>
+```
+
+> 시스템 수식어는 `keyup` 이벤트와 함께 사용되면 이벤트가 발생할 때 수식어 키가 눌려있어야 한다.
+
+### `.exact`
+
+> `.exact` 수식어를 사용하여 다른 시스템 수식어와 조합해 그 핸들러가 실행되기 위한 정확한 조합을 만들 수 있다.
+
+```html
+<!-- Alt 또는 Shift와 함께 눌린 경우에도 실행된다 -->
+<button @click.ctrl="onClick">A</button>
+<!-- Ctrl 키만 눌려있을 때만 실행 -->
+<button @click.ctrl.exact="onCtrlClick">A</button>
+<!-- 시스템 키가 눌리지 않은 상태인 경우에만 실행 -->
+<button @click.exact="onClick">A</button>
+```
+
+### 마우스 버튼 수식어
+
+- `.left`
+- `.right`
+- `.middle`
+  > 특정 마우스 버튼이 트리거 되었을 때 이벤트 핸들러가 실행된다.
