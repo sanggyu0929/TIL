@@ -37,3 +37,5 @@
 - [Vue.js Props](https://github.com/sanggyu0929/TIL/blob/main/Vue.js/Vue.js_Props.md)
 
 - [Vue.js $emit](https://github.com/sanggyu0929/TIL/blob/main/Vue.js/Vue.js_$emit.md)
+
+- [Vue.js slot](https://github.com/sanggyu0929/TIL/blob/main/Vue.js/Vue.js_slot.md)
