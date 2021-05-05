@@ -35,3 +35,5 @@
 - [Vue.js Event Handling](https://github.com/sanggyu0929/TIL/blob/main/Vue.js/Vue.js_EventHandling.md)
 
 - [Vue.js Props](https://github.com/sanggyu0929/TIL/blob/main/Vue.js/Vue.js_Props.md)
+
+- [Vue.js $emit](https://github.com/sanggyu0929/TIL/blob/main/Vue.js/Vue.js_$emit.md)
